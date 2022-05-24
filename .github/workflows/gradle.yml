@@ -38,7 +38,7 @@ jobs:
         working-directory: ${{env.working-directory}}
       - name: Build with Gradle
         run: ./gradlew bootJar
-        wrapper-directory: /home/runner/work/airbnb/airbnb/BE
+        working-directory: /home/runner/work/airbnb/airbnb/BE
 
     # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
     # - name: Publish Unit Test Results
