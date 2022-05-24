@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_ID }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Deploy 😆😆
+      - name: Deploy 😆
         uses: appleboy/ssh-action@master
         with:
           host: 3.38.224.138
