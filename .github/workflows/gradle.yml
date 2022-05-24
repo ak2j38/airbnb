@@ -33,16 +33,26 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
         working-directory: ${{env.working-directory}}
+
       - name: Test with Gradle
         run: ./gradlew test
         working-directory: ${{env.working-directory}}
+
       - name: Build with Gradle
         run: ./gradlew bootJar
-        working-directory: /home/runner/work/airbnb/airbnb/BE
+        working-directory: ${{env.working-directory}}
 
-    # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
-    # - name: Publish Unit Test Results
-    #  uses: EnricoMi/publish-unit-test-result-action@v1
-    #  if: ${{ always() }}  # 테스트가 실패하여도 Report를 보기 위해 always로 설정
-    #  with:
-    #    files: build/test-results/*/.xml
+      - name: Make Directory for Deliver
+        run: mkdir deploy
+
+      - name: Copy Jar
+        run: cp ./build/libs/*.jar ./deploy/
+        working-directory: ${{env.working-directory}}
+
+      - name: Build and Push Docker Image
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with:
+          image: ak2j38/airbnb
+          registry: docker.io
+          username: ${{secrets.DOCKERHUB_ID}}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
