@@ -9,43 +9,41 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ ga-test ]
+    branches: [ga-test]
   pull_request:
-    branches: [ ga-test ]
+    branches: [ga-test]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-        env:
-          working-directory: ./BE
+    env:
+      working-directory: ./BE
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-    - name: Build with Gradle
-      uses: eskatos/gradle-command-action@v1
-      with:        
-        wrapper-directory: /home/runner/work/airbnb/airbnb/BE
-      
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-      working-directory: ${{env.working-directory}}
-    - name: Test with Gradle
-      run: ./gradlew test
-      working-directory: ${{env.working-directory}}
-  
-        
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: "11"
+          distribution: "temurin"
+      - name: Build with Gradle
+        uses: eskatos/gradle-command-action@v1
+        with:
+          wrapper-directory: /home/runner/work/airbnb/airbnb/BE
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        working-directory: ${{env.working-directory}}
+      - name: Test with Gradle
+        run: ./gradlew test
+        working-directory: ${{env.working-directory}}
+
     # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
     # - name: Publish Unit Test Results
     #  uses: EnricoMi/publish-unit-test-result-action@v1
     #  if: ${{ always() }}  # 테스트가 실패하여도 Report를 보기 위해 always로 설정
     #  with:
-    #    files: build/test-results/*/.xml 
+    #    files: build/test-results/*/.xml
