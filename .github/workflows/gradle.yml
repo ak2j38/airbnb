@@ -20,6 +20,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+      env:
+        working-directory: ./BE
 
     steps:
     - uses: actions/checkout@v3
@@ -37,6 +39,7 @@ jobs:
       run: chmod +x gradlew
     - name: Test with Gradle
       run: ./gradlew test
+  
         
     # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
     # - name: Publish Unit Test Results
