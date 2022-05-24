@@ -46,7 +46,7 @@ jobs:
         run: mkdir deploy
 
       - name: Copy Jar
-        run: cp ./build/libs/*.jar ./deploy/
+        run: cp ./build/libs/*.jar ./deploy
         working-directory: ${{env.working-directory}}
 
       - name: Build and Push Docker Image
