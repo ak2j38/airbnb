@@ -42,17 +42,12 @@ jobs:
         run: ./gradlew bootJar
         working-directory: ${{env.working-directory}}
 
-      - name: Make Directory for Deliver
-        run: mkdir deploy
-
-      - name: Copy Jar
-        run: cp ./build/libs/*.jar ./deploy
-        working-directory: ${{env.working-directory}}
-
       - name: Build and Push Docker Image
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           image: ak2j38/airbnb
           registry: docker.io
+          dockerfile: ${{env.working-directory}}/Dockerfile
           username: ${{secrets.DOCKERHUB_ID}}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          # directory: ${{env.working-directory}}
