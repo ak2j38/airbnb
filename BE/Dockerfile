@@ -1,4 +1,3 @@
 FROM openjdk:11-jdk
-ARG JAR_FILE=build/libs/*.jar
-COPY ${JAR_FILE} airbnb.jar
+COPY build/libs/airbnb.jar airbnb.jar
 ENTRYPOINT ["java","-jar","/airbnb.jar"]
