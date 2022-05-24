@@ -8,6 +8,7 @@ public class GitActionTestController {
 
 	@GetMapping("/")
 	public String hello() {
+		System.out.println("테슷흐~~~");
 		return "hello";
 	}
 }
