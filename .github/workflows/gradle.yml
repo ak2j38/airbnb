@@ -60,6 +60,6 @@ jobs:
           envs: GITHUB_SHA
           script: |
             docker pull ak2j38/airbnb:ga-test-${GITHUB_SHA::7}
-            docker tag ak2j38/airbnb${GITHUB_SHA::7} airbnb
+            docker tag ak2j38/airbnb:ga-test-${GITHUB_SHA::7} airbnb:ga-test-${GITHUB_SHA::7}
             docker stop server
-            docker run -d --rm --name server -p 80:8080 airbnb
+            docker run -d --rm --name server -p 8080:8080 airbnb:ga-test-${GITHUB_SHA::7}
