@@ -39,7 +39,7 @@ jobs:
         working-directory: ${{env.working-directory}}
       - name: Test with Gradle
         run: ./gradlew test
-        working-directory: ${{env.working-directory}}
+        #working-directory: ${{env.working-directory}}
 
     # 테스트 후 Result를 보기위해 Publish Unit Test Results step 추가
     # - name: Publish Unit Test Results
