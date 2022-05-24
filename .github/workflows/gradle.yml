@@ -48,6 +48,18 @@ jobs:
           image: ak2j38/airbnb
           registry: docker.io
           dockerfile: ${{env.working-directory}}/Dockerfile
-          username: ${{secrets.DOCKERHUB_ID}}
+          username: ${{ secrets.DOCKERHUB_ID }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          # directory: ${{env.working-directory}}
+
+      - name: Deploy 😆
+        uses: appleboy/ssh-action@master
+        with:
+          host: 3.38.224.138
+          username: ec2-user
+          key: ${{ secrets.PRIVATE_KEY }}
+          envs: GITHUB_SHA
+          script: |
+            docker pull ak2j38/airbnb:ga-test-${GITHUB_SHA::7}
+            docker tag ak2j38/airbnb${GITHUB_SHA::7} airbnb
+            docker stop server
+            docker run -d --rm --name server -p 80:8080 airbnb
