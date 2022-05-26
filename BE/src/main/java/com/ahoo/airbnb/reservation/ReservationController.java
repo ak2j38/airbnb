@@ -1,5 +1,6 @@
 package com.ahoo.airbnb.reservation;
 
+import com.ahoo.airbnb.reservation.dtos.ReservationRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeResponse;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,11 @@ public class ReservationController {
 		RoomChargeResponse responseBody = reservationService.calculateTotalChargeOf(roomId, roomChargeRequest);
 		return ResponseEntity.ok(responseBody);
 	}
+
+	@PostMapping
+	public ResponseEntity<Void> reserve(@RequestBody ReservationRequest reservationRequest) {
+
+		log.info("reservationRequest={}", reservationRequest);
+		return ResponseEntity.ok().build();
 	}
 }

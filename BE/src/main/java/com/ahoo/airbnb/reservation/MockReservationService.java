@@ -1,5 +1,6 @@
 package com.ahoo.airbnb.reservation;
 
+import com.ahoo.airbnb.reservation.dtos.ReservationRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeResponse;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,8 @@ public class MockReservationService {
 		charges.add(new Charge("서비스 수수료", 8188));
 		charges.add(new Charge("숙박세와 수수료", 819));
 		return new RoomChargeResponse(70358, 1488195, charges);
+	}
+
+	public void reserve(ReservationRequest reservationRequest) {
 	}
 }
