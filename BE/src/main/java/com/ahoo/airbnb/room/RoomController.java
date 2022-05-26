@@ -29,6 +29,11 @@ public class RoomController {
         return ResponseEntity.ok().body(roomService.findByCondition(roomRequest));
     }
 
+    /**
+     * 숙소 상세 정보
+     * @param id
+     * @return
+     */
     @GetMapping("/rooms/{id}")
     public ResponseEntity<RoomDetailResponse> getRoomDetails(@PathVariable Long id) {
         log.info("rooms Get Request : {}", id);
