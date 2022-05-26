@@ -4,14 +4,17 @@ import com.ahoo.airbnb.member.MemberResponse;
 import com.ahoo.airbnb.room.dtos.RoomDetailResponse;
 import com.ahoo.airbnb.room.dtos.RoomRequest;
 import com.ahoo.airbnb.room.dtos.RoomResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class MockRoomService {
 
     public List<RoomResponse> findByCondition(RoomRequest roomRequest) {
+        log.info("findByCondition : {}", roomRequest);
         return List.of(
                 new RoomResponse(1L, "RoziHouse #건대입구역2분#소독#넷플릭스#커먼그라운드#CGV#한강", 75_000, 1_200_000, 4.7, 127, "https://a0.muscache.com/im/pictures/f033e5ee-ae6f-48c2-9196-996444f16c4a.jpg?im_w=1200", 1L, "41.40338, 2.17403"),
                 new RoomResponse(2L, "도시속영화관 #2 빔프로젝트, 왕십리역1분, 한양대병원 .시티뷰, 넷플릭스", 60_000, 1_000_539, 4.5, 95, "https://a0.muscache.com/im/pictures/miso/Hosting-47988590/original/12c9f003-22bf-4df0-8ea0-1ca8a5569f6c.jpeg?im_w=1200", 2L, "41.40990, 2.15235"),
@@ -21,6 +24,7 @@ public class MockRoomService {
     }
 
     public RoomDetailResponse findById(Long id) {
+        log.info("findById : {}", id);
         return new RoomDetailResponse(1L,
                 "RoziHouse #건대입구역2분#소독#넷플릭스#커먼그라운드#CGV#한강",
                 "Welcome to the purply purple Rozi house. It's gonna be a special and cozy day in here.",
