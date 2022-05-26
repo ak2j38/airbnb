@@ -1,11 +1,13 @@
 package com.ahoo.airbnb.reservation;
 
 import com.ahoo.airbnb.reservation.dtos.ReservationRequest;
+import com.ahoo.airbnb.reservation.dtos.ReservationsResponse;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,5 +37,11 @@ public class ReservationController {
 
 		log.info("reservationRequest={}", reservationRequest);
 		return ResponseEntity.ok().build();
+	}
+
+	@GetMapping
+	public ResponseEntity<ReservationsResponse> reservations() {
+		ReservationsResponse responseBody = reservationService.reservations();
+		return ResponseEntity.ok(responseBody);
 	}
 }
