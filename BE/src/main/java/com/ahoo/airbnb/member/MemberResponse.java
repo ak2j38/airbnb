@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MemberResponse {
 
-	private long id;
-	private String name;
-	private String profileImageUrl;
+    private long id;
+    private String name;
+    private String profileImageUrl;
 }

@@ -20,22 +20,26 @@ public class RoomController {
 
     /**
      * 숙소 리스트
+     *
      * @param roomRequest
      * @return
      */
     @PostMapping("/rooms")
     public ResponseEntity<List<RoomResponse>> getRooms(@RequestBody RoomRequest roomRequest) {
+
         log.info("rooms Post Request : {}", roomRequest);
         return ResponseEntity.ok().body(roomService.findByCondition(roomRequest));
     }
 
     /**
      * 숙소 상세 정보
+     *
      * @param id
      * @return
      */
     @GetMapping("/rooms/{id}")
     public ResponseEntity<RoomDetailResponse> getRoomDetails(@PathVariable Long id) {
+
         log.info("rooms Get Request : {}", id);
         return ResponseEntity.ok().body(roomService.findById(id));
     }

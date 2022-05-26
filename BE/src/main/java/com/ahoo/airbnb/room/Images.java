@@ -6,6 +6,7 @@ import java.util.List;
 
 @Getter
 public class Images {
+
     private List<Image> images;
 
     public Images(List<Image> images) {

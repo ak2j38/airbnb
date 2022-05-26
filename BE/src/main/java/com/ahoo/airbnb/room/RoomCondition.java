@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RoomCondition {
 
-	private String roomType;
-	private int maxCapacity;
-	private int bedroomCount;
-	private int bedCount;
-	private int bathroomCount;
+    private String roomType;
+    private int maxCapacity;
+    private int bedroomCount;
+    private int bedCount;
+    private int bathroomCount;
 }

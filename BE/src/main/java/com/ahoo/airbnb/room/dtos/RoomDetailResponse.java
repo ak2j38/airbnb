@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoomDetailResponse {
+
     private Long roomId;
     private String name;
     private String description;

@@ -10,6 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class RoomRequest {
+
     private String location;
     private String checkInDate;
     private String checkOutDate;
