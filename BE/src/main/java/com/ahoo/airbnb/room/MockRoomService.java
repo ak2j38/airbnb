@@ -30,9 +30,9 @@ public class MockRoomService {
                 "Welcome to the purply purple Rozi house. It's gonna be a special and cozy day in here.",
                 4.7,
                 127,
-                new Address(),
-                new MemberResponse(),
-                new RoomCondition(),
+                new Address("대한민국", "서울시", "광진구", "아차산로", "564 1009동 405호"),
+                new MemberResponse(1L, "ahoo", "https://avatars.githubusercontent.com/u/68011320?v=4"),
+                new RoomCondition("투룸", 5, 2, 2, 1),
                 75_000,
                 new Images(List.of(
                         new Image(1, "https://a0.muscache.com/im/pictures/f033e5ee-ae6f-48c2-9196-996444f16c4a.jpg?im_w=1200"),
