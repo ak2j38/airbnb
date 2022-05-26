@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Address {
 
-	private String roomType;
-	private int maxCapacity;
-	private int bedroomCount;
-	private int bedCount;
-	private int bathroomCount;
+	private String country;
+	private String city;
+	private String state;
+	private String street;
+	private String detailAddress;
 }
