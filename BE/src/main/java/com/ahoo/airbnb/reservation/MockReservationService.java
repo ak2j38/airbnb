@@ -55,4 +55,20 @@ public class MockReservationService {
 		));
 		return reservations;
 	}
+
+	public ReservationResponse reservation(long reservationId) {
+		return new ReservationResponse(
+			reservationId,
+			3,
+			1488195,
+			"♥️2차는 여기! \uD83C\uDF7E생일파티\uD83C\uDF7A회식❤️강남최고의 가성비!",
+			"집전체",
+			"https://a0.muscache.com/im/pictures/e6bb8c75-de6e-4422-af13-fdbbfbe19a0d.jpg?im_w=720",
+			"2022/05/28",
+			"2022/05/29",
+			new Address("한국", "서울", "서초구", "서초 4동", "비밀"),
+			new MemberResponse(1, "우진팍",
+				"https://avatars.githubusercontent.com/u/29879110?v=4")
+		);
+	}
 }

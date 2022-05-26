@@ -1,6 +1,7 @@
 package com.ahoo.airbnb.reservation;
 
 import com.ahoo.airbnb.reservation.dtos.ReservationRequest;
+import com.ahoo.airbnb.reservation.dtos.ReservationResponse;
 import com.ahoo.airbnb.reservation.dtos.ReservationsResponse;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeRequest;
 import com.ahoo.airbnb.reservation.dtos.RoomChargeResponse;
@@ -28,7 +29,8 @@ public class ReservationController {
 		@RequestBody RoomChargeRequest roomChargeRequest) {
 
 		log.info("roomChargeRequest={}", roomChargeRequest);
-		RoomChargeResponse responseBody = reservationService.calculateTotalChargeOf(roomId, roomChargeRequest);
+		RoomChargeResponse responseBody = reservationService.calculateTotalChargeOf(roomId,
+			roomChargeRequest);
 		return ResponseEntity.ok(responseBody);
 	}
 
@@ -42,6 +44,12 @@ public class ReservationController {
 	@GetMapping
 	public ResponseEntity<ReservationsResponse> reservations() {
 		ReservationsResponse responseBody = reservationService.reservations();
+		return ResponseEntity.ok(responseBody);
+	}
+
+	@GetMapping("/{reservationId}")
+	public ResponseEntity<ReservationResponse> reservation(@PathVariable long reservationId) {
+		ReservationResponse responseBody = reservationService.reservation(reservationId);
 		return ResponseEntity.ok(responseBody);
 	}
 }
