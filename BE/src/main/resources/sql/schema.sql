@@ -1,3 +1,15 @@
+-- drop all tables if exists
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS wish;
+DROP TABLE IF EXISTS reservation;
+DROP TABLE IF EXISTS room_review;
+DROP TABLE IF EXISTS room_charge_policy;
+DROP TABLE IF EXISTS room_image;
+DROP TABLE IF EXISTS charge_policy;
+DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS member;
+SET FOREIGN_KEY_CHECKS = 1;
+
 -- member Table Create SQL
 CREATE TABLE member
 (
