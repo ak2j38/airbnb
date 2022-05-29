@@ -262,3 +262,13 @@ INSERT INTO room_image (room_id, url, is_main_image, sequence) VALUES (31296991,
 INSERT INTO room_image (room_id, url, is_main_image, sequence) VALUES (31296991, 'https://a0.muscache.com/im/pictures/miso/Hosting-31296991/original/6c6af4d7-67d9-4bbf-a29c-660dac3f84b1.jpeg?im_w=720', false, 4);
 INSERT INTO room_image (room_id, url, is_main_image, sequence) VALUES (31296991, 'https://a0.muscache.com/im/pictures/miso/Hosting-31296991/original/0c419cf9-e42c-4080-b8f1-d0c5b4aec809.jpeg?im_w=720', false, 5);
 INSERT INTO room_image (room_id, url, is_main_image, sequence) VALUES (31296991, 'https://a0.muscache.com/im/pictures/miso/Hosting-31296991/original/18171868-3e87-4f40-8696-994fde568fd4.jpeg?im_w=720', false, 6);
+
+INSERT INTO charge_policy (name, is_active) VALUES ('WEEKDAY', true);
+INSERT INTO charge_policy (name, is_active) VALUES ('WEEKEND', true);
+
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (1, 1);
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (1, 2);
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (2, 1);
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (2, 2);
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (4, 1);
+INSERT INTO room_charge_policy(room_id, charge_policy_id) VALUES (4, 2);
