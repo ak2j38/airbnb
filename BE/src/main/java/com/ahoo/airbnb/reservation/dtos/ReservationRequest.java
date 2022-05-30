@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class ReservationRequest {
 
-	private long roomId;
+	private Long roomId;
 	private String checkInDate;
 	private String checkOutDate;
 	private int headcount;

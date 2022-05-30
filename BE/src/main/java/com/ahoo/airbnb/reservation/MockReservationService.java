@@ -37,7 +37,7 @@ public class MockReservationService {
 			"2022/05/28",
 			"2022/05/29",
 			new Address("한국", "서울", "서초구", "서초 4동", "비밀"),
-			new MemberResponse(1, "우진팍",
+			new MemberResponse(1L, "우진팍",
 				"https://avatars.githubusercontent.com/u/29879110?v=4")
 		));
 		reservations.add(new ReservationResponse(
@@ -50,7 +50,7 @@ public class MockReservationService {
 			"2022/06/01",
 			"2022/06/02",
 			new Address("한국", "서울", "서초구", "서초 4동", "비밀"),
-			new MemberResponse(1, "우진팍",
+			new MemberResponse(1L, "우진팍",
 				"https://avatars.githubusercontent.com/u/29879110?v=4")
 		));
 		return reservations;
@@ -67,7 +67,7 @@ public class MockReservationService {
 			"2022/05/28",
 			"2022/05/29",
 			new Address("한국", "서울", "서초구", "서초 4동", "비밀"),
-			new MemberResponse(1, "우진팍",
+			new MemberResponse(1L, "우진팍",
 				"https://avatars.githubusercontent.com/u/29879110?v=4")
 		);
 	}

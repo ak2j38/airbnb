@@ -102,7 +102,7 @@ public class ReservationController {
         }
     )
     @GetMapping("/{reservationId}")
-    public ResponseEntity<ReservationResponse> reservation(@PathVariable long reservationId) {
+    public ResponseEntity<ReservationResponse> reservation(@PathVariable Long reservationId) {
         ReservationResponse responseBody = reservationService.reservation(reservationId);
         return ResponseEntity.ok(responseBody);
     }

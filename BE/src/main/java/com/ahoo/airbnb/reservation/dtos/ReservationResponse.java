@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ReservationResponse {
 
-	private long reservationID;
+	private Long reservationID;
 	private int headCount;
 	private int totalCharge;
 	private String roomName;
