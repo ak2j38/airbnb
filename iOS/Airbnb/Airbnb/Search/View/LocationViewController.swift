@@ -89,12 +89,13 @@ extension LocationViewController: UISearchBarDelegate, UITextFieldDelegate, UISe
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text else { return }
         dump(query)
+        self.nearbyLoactionView.reloadData()
     }
-    
     
     @objc func clearSearchField(_ sender: Any) {
         searchController.searchBar.text = nil
         self.navigationItem.rightBarButtonItem = nil
+        model.changeMode(.popular)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -107,7 +108,9 @@ extension LocationViewController: UISearchBarDelegate, UITextFieldDelegate, UISe
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        navigationItem.rightBarButtonItem = !searchText.isEmpty ? searchInitializeButton : nil
+        let searchTextIsEnable = !searchText.isEmpty
+        navigationItem.rightBarButtonItem = searchTextIsEnable ? searchInitializeButton : nil
+        model.changeMode(searchTextIsEnable ? .nearby : .popular)
     }
 }
 
@@ -124,7 +127,7 @@ extension LocationViewController: UICollectionViewDelegateFlowLayout, UICollecti
             return UICollectionViewCell()
         }
         cell.cityName.text = item.destination
-        cell.spendingTime.text = item.distance
+        cell.spendingTime.text = (item as? PopularCityInfomation)?.distance
         return cell
     }
     
@@ -142,7 +145,7 @@ extension LocationViewController: UICollectionViewDelegateFlowLayout, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width: CGFloat = nearbyLoactionView.frame.width
-        let headerViewHeight: CGFloat = 78
+        let headerViewHeight: CGFloat = ((model[0] as? PopularCityInfomation) == nil ? 0 : 78)
         return CGSize(width: width, height: headerViewHeight)
     }
 }
