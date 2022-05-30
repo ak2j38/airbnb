@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00230CF0283BB77500802765 /* TabBarViewController.swift */; };
 		0029729628445B8D0033437E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029729528445B8D0033437E /* LocationModel.swift */; };
+		0029729C2844B4DF0033437E /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029729B2844B4DF0033437E /* CalendarViewController.swift */; };
 		00330A9D283BF91A009014AF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00330A9C283BF91A009014AF /* LocationViewController.swift */; };
 		003514E4283CC8C00078514F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 003514E3283CC8C00078514F /* SnapKit */; };
 		003514E7283CC8DA0078514F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 003514E6283CC8DA0078514F /* Alamofire */; };
@@ -19,7 +20,7 @@
 		008A2062283F4E220095F7BC /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008A2061283F4E220095F7BC /* BackgroundViewController.swift */; };
 		008A2064283F62910095F7BC /* LocationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008A2063283F62910095F7BC /* LocationCollectionViewCell.swift */; };
 		008A20A6283FE3960095F7BC /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008A20A5283FE3960095F7BC /* HeaderReusableView.swift */; };
-		00A85F35283B872800EA32E0 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A85F34283B872800EA32E0 /* SearchModel.swift */; };
+		00A85F35283B872800EA32E0 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A85F34283B872800EA32E0 /* ReservationModel.swift */; };
 		00A85F38283B873F00EA32E0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A85F37283B873F00EA32E0 /* SearchViewController.swift */; };
 		00A85F3C283B876A00EA32E0 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A85F3B283B876A00EA32E0 /* WishListViewController.swift */; };
 		00A85F3E283B877700EA32E0 /* WishModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A85F3D283B877700EA32E0 /* WishModel.swift */; };
@@ -70,6 +71,7 @@
 /* Begin PBXFileReference section */
 		00230CF0283BB77500802765 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		0029729528445B8D0033437E /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		0029729B2844B4DF0033437E /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		00330A9C283BF91A009014AF /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		005AF78B283B775300546D5B /* Airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005AF78E283B775300546D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		008A2061283F4E220095F7BC /* BackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 		008A2063283F62910095F7BC /* LocationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewCell.swift; sourceTree = "<group>"; };
 		008A20A5283FE3960095F7BC /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
-		00A85F34283B872800EA32E0 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		00A85F34283B872800EA32E0 /* ReservationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		00A85F37283B873F00EA32E0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		00A85F3B283B876A00EA32E0 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		00A85F3D283B877700EA32E0 /* WishModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishModel.swift; sourceTree = "<group>"; };
@@ -133,6 +135,22 @@
 				00230CF0283BB77500802765 /* TabBarViewController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		002972972844B45C0033437E /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				002972982844B4770033437E /* View */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		002972982844B4770033437E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0029729B2844B4DF0033437E /* CalendarViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		005AF782283B775200546D5B = {
@@ -189,6 +207,7 @@
 		005AF7C2283B843700546D5B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				002972972844B45C0033437E /* Calendar */,
 				00A85F36283B872E00EA32E0 /* View */,
 				00A85F33283B871900EA32E0 /* Model */,
 				1B807DCD283F540500D6815F /* DTO */,
@@ -219,7 +238,7 @@
 		00A85F33283B871900EA32E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				00A85F34283B872800EA32E0 /* SearchModel.swift */,
+				00A85F34283B872800EA32E0 /* ReservationModel.swift */,
 				0029729528445B8D0033437E /* LocationModel.swift */,
 				1B27E234283CA44400FCB990 /* SearchViewModel.swift */,
 				1B807DCA283F529A00D6815F /* SearchCalendarModel.swift */,
@@ -437,12 +456,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0029729C2844B4DF0033437E /* CalendarViewController.swift in Sources */,
 				00A85F3E283B877700EA32E0 /* WishModel.swift in Sources */,
 				1B807DCB283F529A00D6815F /* SearchCalendarModel.swift in Sources */,
 				1B27E233283CA14900FCB990 /* SearchOneInARowCollectionViewCell.swift in Sources */,
 				0029729628445B8D0033437E /* LocationModel.swift in Sources */,
 				1B27E231283CA14200FCB990 /* SearchTwoInARowCollectionViewCell.swift in Sources */,
-				00A85F35283B872800EA32E0 /* SearchModel.swift in Sources */,
+				00A85F35283B872800EA32E0 /* ReservationModel.swift in Sources */,
 				00A85F3C283B876A00EA32E0 /* WishListViewController.swift in Sources */,
 				00A85F41283B87A300EA32E0 /* MyInfoViewController.swift in Sources */,
 				008A2064283F62910095F7BC /* LocationCollectionViewCell.swift in Sources */,

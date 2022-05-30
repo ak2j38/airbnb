@@ -18,8 +18,8 @@ class LocationCollectionViewCell: UICollectionViewCell {
         imageView.image = #imageLiteral(resourceName: "mockImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = CGFloat(6)
-        imageView.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        imageView.layer.cornerRadius = 6
+//        imageView.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
         return imageView
     }()
     

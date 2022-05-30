@@ -29,7 +29,7 @@ class HeaderReusableView: UICollectionReusableView {
         
         self.backgroundColor = .systemBackground
         text.snp.makeConstraints {
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
             $0.centerY.equalToSuperview()
         }
     }

@@ -27,8 +27,6 @@ class LocationViewController: BackgroundViewController, CommonViewControllerProt
     lazy var nearbyLoactionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 64)
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(LocationCollectionViewCell.self, forCellWithReuseIdentifier: LocationCollectionViewCell.reuseIdentifier)
         collectionView.register(HeaderReusableView.self,
@@ -53,13 +51,10 @@ class LocationViewController: BackgroundViewController, CommonViewControllerProt
     }
     
     func layout() {
-        let sideMargin: CGFloat = 16
         view.addSubview(nearbyLoactionView)
         
         nearbyLoactionView.snp.makeConstraints {
-            $0.top.bottom.equalTo(view)
-            $0.leading.equalTo(view).offset(sideMargin)
-            $0.trailing.equalTo(view).inset(sideMargin)
+            $0.top.trailing.leading.bottom.equalToSuperview()
         }
     }
     
@@ -142,10 +137,24 @@ extension LocationViewController: UICollectionViewDelegateFlowLayout, UICollecti
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let reservationModel = ReservationModel()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? LocationCollectionViewCell else {
+            return
+        }
+        reservationModel.location = cell.cityName.text
+        let nextVC = CalendarViewController(reservationModel: reservationModel)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let sideMargin: CGFloat = 16
+        let width:CGFloat = UIScreen.main.bounds.width - sideMargin * 2
+        return CGSize(width: width, height: 64)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width: CGFloat = nearbyLoactionView.frame.width
         let headerViewHeight: CGFloat = ((model[0] as? PopularCityInfomation) == nil ? 0 : 78)
-        return CGSize(width: width, height: headerViewHeight)
+        return CGSize(width: 0, height: headerViewHeight)
     }
 }
