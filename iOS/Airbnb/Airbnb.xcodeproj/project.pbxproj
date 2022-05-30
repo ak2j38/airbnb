@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00230CF1283BB77500802765 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00230CF0283BB77500802765 /* TabBarViewController.swift */; };
+		0029729628445B8D0033437E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029729528445B8D0033437E /* LocationModel.swift */; };
 		00330A9D283BF91A009014AF /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00330A9C283BF91A009014AF /* LocationViewController.swift */; };
 		003514E4283CC8C00078514F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 003514E3283CC8C00078514F /* SnapKit */; };
 		003514E7283CC8DA0078514F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 003514E6283CC8DA0078514F /* Alamofire */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		00230CF0283BB77500802765 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		0029729528445B8D0033437E /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		00330A9C283BF91A009014AF /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		005AF78B283B775300546D5B /* Airbnb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Airbnb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		005AF78E283B775300546D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				00A85F34283B872800EA32E0 /* SearchModel.swift */,
+				0029729528445B8D0033437E /* LocationModel.swift */,
 				1B27E234283CA44400FCB990 /* SearchViewModel.swift */,
 				1B807DCA283F529A00D6815F /* SearchCalendarModel.swift */,
 			);
@@ -437,6 +440,7 @@
 				00A85F3E283B877700EA32E0 /* WishModel.swift in Sources */,
 				1B807DCB283F529A00D6815F /* SearchCalendarModel.swift in Sources */,
 				1B27E233283CA14900FCB990 /* SearchOneInARowCollectionViewCell.swift in Sources */,
+				0029729628445B8D0033437E /* LocationModel.swift in Sources */,
 				1B27E231283CA14200FCB990 /* SearchTwoInARowCollectionViewCell.swift in Sources */,
 				00A85F35283B872800EA32E0 /* SearchModel.swift in Sources */,
 				00A85F3C283B876A00EA32E0 /* WishListViewController.swift in Sources */,

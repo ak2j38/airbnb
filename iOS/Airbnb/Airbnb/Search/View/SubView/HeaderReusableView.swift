@@ -27,6 +27,7 @@ class HeaderReusableView: UICollectionReusableView {
         super.init(frame: frame)
         addSubview(text)
         
+        self.backgroundColor = .systemBackground
         text.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.centerY.equalToSuperview()

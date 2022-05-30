@@ -15,8 +15,10 @@ struct SearchDayDTO {
     let isOccupied: Bool
     
     let isSelected: Bool = false
-    // 선택되었을 시 왼쪽부터 서서히 채워나가는 이펙트를 줌
-    var fadeLeft: Bool = false
-    // 선택되었을 시 오른쪽부터 서서히 채워나가는 이펙트를 줌
-    var fadeRight: Bool = false
+
+    var fadeState: FadeState = .none
+    
+    enum FadeState {
+        case left, right, fill, none
+    }
 }

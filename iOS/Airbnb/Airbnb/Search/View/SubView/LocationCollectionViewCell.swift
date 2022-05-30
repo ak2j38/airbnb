@@ -43,6 +43,7 @@ class LocationCollectionViewCell: UICollectionViewCell {
     }
     
     private func attribute() {
+        self.backgroundColor = .systemBackground
         cityName.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         cityName.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         spendingTime.font = UIFont.systemFont(ofSize: 17, weight: .light)

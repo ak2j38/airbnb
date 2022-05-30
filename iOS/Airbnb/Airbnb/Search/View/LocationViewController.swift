@@ -9,10 +9,8 @@ import UIKit
 import SnapKit
 
 class LocationViewController: BackgroundViewController, CommonViewControllerProtocol {
-    
-    private let locations: [String] = [
-        "서울", "광주", "의정부시", "수원시", "대구", "울산", "대전", "부천시"
-    ]
+     
+    let model = LocationModel()
     
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -26,9 +24,11 @@ class LocationViewController: BackgroundViewController, CommonViewControllerProt
         return searchController
     }()
         
-    private var nearbyLoactionView: UICollectionView = {
+    lazy var nearbyLoactionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 64)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(LocationCollectionViewCell.self, forCellWithReuseIdentifier: LocationCollectionViewCell.reuseIdentifier)
         collectionView.register(HeaderReusableView.self,
@@ -36,7 +36,7 @@ class LocationViewController: BackgroundViewController, CommonViewControllerProt
         return collectionView
     }()
     
-    lazy var removeSearchTextField: UIBarButtonItem = {
+    lazy var searchInitializeButton: UIBarButtonItem = {
         let barButton = UIBarButtonItem(title: "지우기", style: .done,
                                         target: self, action: #selector(self.clearSearchField(_:)))
         barButton.tintColor = .gray
@@ -49,6 +49,7 @@ class LocationViewController: BackgroundViewController, CommonViewControllerProt
         navigationItem.title = "숙소 찾기"
         super.setUpNavigationAppearance()
         view.backgroundColor = .systemBackground
+        self.navigationController?.isToolbarHidden = false
     }
     
     func layout() {
@@ -106,31 +107,26 @@ extension LocationViewController: UISearchBarDelegate, UITextFieldDelegate, UISe
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        !searchText.isEmpty
-        ? (navigationItem.rightBarButtonItem = removeSearchTextField)
-        : (navigationItem.rightBarButtonItem = nil)
+        navigationItem.rightBarButtonItem = !searchText.isEmpty ? searchInitializeButton : nil
     }
 }
 
 extension LocationViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        locations.count
+        model.getCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = nearbyLoactionView.dequeueReusableCell(withReuseIdentifier: LocationCollectionViewCell.reuseIdentifier, for: indexPath) as? LocationCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.cityName.text = locations[indexPath.row]
-        cell.spendingTime.text = locations[indexPath.row]
+        guard let item = model[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.cityName.text = item.destination
+        cell.spendingTime.text = item.distance
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 64)
-    }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) ->
     UICollectionReusableView {
